@@ -1,0 +1,64 @@
+<?xml version='1.0' encoding='utf-8'?>
+<plugin id="owt.sample.conference.intelwebrtcplugin" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+    <name>intelwebrtcplugin</name>
+    <js-module name="intelwebrtc_plugin" src="www/intelwebrtcplugin.js">
+        <clobbers target="intelwebrtcplugin" />
+    </js-module>
+    <platform name="ios">
+        <config-file parent="/*" target="config.xml">
+            <feature name="intelwebrtcplugin">
+                <param name="ios-package" value="intelwebrtcplugin" />
+            </feature>
+        </config-file>
+        
+<!--        <source-file src="src/ios/conference/Base.lproj/LaunchScreen.xib" />-->
+         <resource-file src="src/ios/conference/Base.lproj/Conf_Main.storyboard"/>
+    
+        <source-file src="src/ios/intelwebrtcplugin.h" />
+        <source-file src="src/ios/intelwebrtcplugin.m" />
+        
+        <source-file src="src/ios/conference/ConferenceConnectionViewController.h" />-->
+<!--        <source-file src="src/ios/conference/Conf_AppDelegate.h" />-->
+        <source-file src="src/ios/conference/BrightenFilter.h" />
+        <source-file src="src/ios/conference/ConferenceStreamViewController.h" />
+        <source-file src="src/ios/conference/FileAudioFrameGenerator.h" />
+        <source-file src="src/ios/conference/HorizontalSegue.h" />
+        <source-file src="src/ios/conference/StreamView.h" />
+        
+<!--        <source-file src="src/ios/conference/Conf_AppDelegate.m" />-->
+        <source-file src="src/ios/conference/BrightenFilter.m" />
+        <source-file src="src/ios/conference/ConferenceConnectionViewController.m" />
+        <source-file src="src/ios/conference/ConferenceStreamViewController.m" />
+        <source-file src="src/ios/conference/FileAudioFrameGenerator.m" />
+        <source-file src="src/ios/conference/HorizontalSegue.m" />
+<!--        <source-file src="src/ios/conference/conf_main.m" />-->
+        <source-file src="src/ios/conference/StreamView.m" />
+        
+        <framework src="VideoToolbox.framework" />
+        <framework src="AudioToolbox.framework" />
+        <framework src="AVFoundation.framework" />
+        <framework src="CoreMedia.framework" />
+        <framework src="MetalKit.framework" />
+        <framework src="SystemConfiguration.framework" />
+        <framework src="libc++.tbd" />
+        <framework src="libicucore.tbd" />
+        <framework src="libsqlite3.0.tbd" />
+        <source-file src="src/ios/libs/libsioclient_tls.a" framework="true" />
+        
+        <framework src="src/ios/libs/OWT.framework" custom="true"  />
+     <!-- may need manual set embed & sign -->
+        <framework src="src/ios/libs/WebRTC.framework" custom="true" weak="false" embed="true" />
+        
+        <podspec>
+            <config>
+                <source url="https://github.com/CocoaPods/Specs.git"/>
+            </config>
+            <pods use-frameworks="true">
+                <pod name="AFNetworking" spec="~> 2.0" />
+            </pods>
+        </podspec>
+
+        
+    </platform>
+</plugin>
+
