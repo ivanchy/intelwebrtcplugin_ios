@@ -5,10 +5,9 @@
         <clobbers target="intelwebrtcplugin" />
     </js-module>
     <platform name="ios">
-        
-        <hook type="before_build" src="scripts/before_build.js" />
-        
-        
+       
+       <hook type="before_build" src="scripts/before_build.js" />
+       
         <config-file parent="/*" target="config.xml">
             <feature name="intelwebrtcplugin">
                 <param name="ios-package" value="intelwebrtcplugin" />

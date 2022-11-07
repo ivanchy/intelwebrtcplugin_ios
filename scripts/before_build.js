@@ -1,8 +1,8 @@
 const fs = require('fs');
-//const util = require('util');
+const util = require('util');
+const getSize = require('get-folder-size');
 //const stat = util.promisify(fs.stat);
 var path = require('path');
-const { exec } = require("child_process");
 
 module.exports = function(ctx) {
     // Make sure android platform is part of build
@@ -10,20 +10,15 @@ module.exports = function(ctx) {
 
     const platformRoot = path.join(ctx.opts.projectRoot, 'platforms/ios');
     const apkFileLocation = path.join(platformRoot, 'IntelWebrtc/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework');
-    
-    exec("du -h "+ apkFileLocation, (error, stdout, stderr) => {
-        if (error) {
-            console.log(`error: ${error.message}`);
-            return;
-        }
-        if (stderr) {
-            console.log(`stderr: ${stderr}`);
-            return;
-        }
-        console.log(`stdout: ${stdout}`);
-    });
 
 //    return stat(apkFileLocation).then(stats => {
 //      console.log(`Size of ${apkFileLocation} is ${stats.size} bytes`);
 //    });
+    
+    return getSize(apkFileLocation, (err, size) => {
+        if (err) { throw err; }
+          
+          console.log(`The folder is ${size} bytes large`);
+          console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
+      });
 };
