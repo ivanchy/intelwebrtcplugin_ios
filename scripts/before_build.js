@@ -8,14 +8,14 @@ module.exports = function(ctx) {
     // Make sure android platform is part of build
     if (!ctx.opts.platforms.includes('ios')) return;
 
-    const platformRoot = path.join(ctx.opts.projectRoot, 'platforms/ios');
-    const apkFileLocation = path.join(platformRoot, 'IntelWebrtc/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework');
+//    const platformRoot = path.join(ctx.opts.projectRoot, 'platforms/ios');
+//    const apkFileLocation = path.join(platformRoot, 'IntelWebrtc/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework');
 
 //    return stat(apkFileLocation).then(stats => {
 //      console.log(`Size of ${apkFileLocation} is ${stats.size} bytes`);
 //    });
     
-    return getSize(apkFileLocation, (err, size) => {
+    return getSize('IntelWebrtc/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, size) => {
         if (err) { throw err; }
           
           console.log(`The folder is ${size} bytes large`);
