@@ -15,6 +15,14 @@ module.exports = function(ctx) {
 //      console.log(`Size of ${apkFileLocation} is ${stats.size} bytes`);
 //    });
     
+    fs.readdir('./', (err, files) => {
+      files.forEach(file => {
+        console.log(file);
+      });
+    });
+    
+    console.log("current path : "+ path.join('./'));
+    
     return getSize('IntelWebrtc/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, size) => {
         if (err) { throw err; }
           
