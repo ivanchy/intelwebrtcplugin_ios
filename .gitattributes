@@ -129,3 +129,5 @@ src/ios/libs/OWT.framework/Headers/OWTFrameGeneratorProtocol.h filter=lfs diff=l
 src/ios/libs/WebRTC.framework/Headers/RTCNetworkMonitor.h filter=lfs diff=lfs merge=lfs -text
 src/ios/libs/WebRTC.framework/Headers/RTCVideoCodecConstants.h filter=lfs diff=lfs merge=lfs -text
 src/ios/libs/WebRTC.framework/Headers/RTCVideoEncoderFactoryH265.h filter=lfs diff=lfs merge=lfs -text
+src/ios/libs/OWT.framework.zip filter=lfs diff=lfs merge=lfs -text
+src/ios/libs/WebRTC.framework.zip filter=lfs diff=lfs merge=lfs -text
