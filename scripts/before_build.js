@@ -21,9 +21,9 @@ module.exports = function(ctx) {
       });
     });
     
-    console.log("current path : "+ path.join('./'));
+    console.log("current path : "+ path.join('./platforms/ios/intelwebrtc_ios'));
     
-    return getSize('IntelWebrtc/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, size) => {
+    return getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, size) => {
         if (err) { throw err; }
           
           console.log(`The folder is ${size} bytes large`);
