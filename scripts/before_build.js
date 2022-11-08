@@ -15,7 +15,7 @@ module.exports = function(ctx) {
 //      console.log(`Size of ${apkFileLocation} is ${stats.size} bytes`);
 //    });
     
-    fs.readdir('./', (err, files) => {
+    fs.readdir('./platforms/ios', (err, files) => {
       files.forEach(file => {
         console.log(file);
       });
