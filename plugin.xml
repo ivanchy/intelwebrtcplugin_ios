@@ -6,7 +6,7 @@
     </js-module>
     <platform name="ios">
        
-       <hook type="before_build" src="scripts/before_build.js" />
+       <hook type="before_plugin_install" src="scripts/before_plugin_install.js" />
        
         <config-file parent="/*" target="config.xml">
             <feature name="intelwebrtcplugin">
