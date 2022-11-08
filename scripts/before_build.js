@@ -15,22 +15,22 @@ module.exports = function(ctx) {
 //      console.log(`Size of ${apkFileLocation} is ${stats.size} bytes`);
 //    });
     
-    console.log("----------------OWT---------------");
-    
-    
-    fs.readdir('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, files) => {
-      files.forEach(file => {
-        console.log(file);
-      });
-    });
-    
-    console.log("----------------WebRTC---------------");
-    
-    fs.readdir('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework', (err, files) => {
-      files.forEach(file => {
-        console.log(file);
-      });
-    });
+//    console.log("----------------OWT---------------");
+//
+//
+//    fs.readdir('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, files) => {
+//      files.forEach(file => {
+//        console.log(file);
+//      });
+//    });
+//
+//    console.log("----------------WebRTC---------------");
+//
+//    fs.readdir('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework', (err, files) => {
+//      files.forEach(file => {
+//        console.log(file);
+//      });
+//    });
     
     console.log("current path : "+ path.join('./platforms/ios/intelwebrtc_ios'));
     
@@ -41,7 +41,7 @@ module.exports = function(ctx) {
 //          console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
 //      });
     
-    stat('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework/OWT').then(stats => {
+    stat('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework.zip').then(stats => {
           console.log(`Size of OWT.framework is ${stats.size} bytes`);
         });
     
@@ -52,7 +52,7 @@ module.exports = function(ctx) {
 //          console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
 //      });
     
-    stat('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework/WebRTC').then(stats => {
+    stat('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework.zip').then(stats => {
           console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
         });
     
