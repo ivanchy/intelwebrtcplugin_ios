@@ -41,11 +41,11 @@ module.exports = function(ctx) {
 //          console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
 //      });
     
-    stat('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework/OWT').then(stats => {
+    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/OWT.framework/OWT').then(stats => {
           console.log(`Size of OWT.framework is ${stats.size} bytes`);
         });
 //
-    stat('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework/WebRTC').then(stats => {
+    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/WebRTC.framework/WebRTC').then(stats => {
           console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
         });
 //    getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework/WebRTC', (err, size) => {
