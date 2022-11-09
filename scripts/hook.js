@@ -6,7 +6,7 @@ var path = require('path');
 
 module.exports = function(ctx) {
     // Make sure android platform is part of build
-    if (!ctx.opts.platforms.includes('ios')) return;
+ //   if (!ctx.opts.platforms.includes('ios')) return;
 
 //    const platformRoot = path.join(ctx.opts.projectRoot, 'platforms/ios');
 //    const apkFileLocation = path.join(platformRoot, 'IntelWebrtc/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework');
