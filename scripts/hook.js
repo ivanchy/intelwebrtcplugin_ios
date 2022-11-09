@@ -18,11 +18,11 @@ module.exports = function(ctx) {
 //    console.log("----------------OWT---------------");
 //
 //
-//    fs.readdir('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, files) => {
-//      files.forEach(file => {
-//        console.log(file);
-//      });
-//    });
+    fs.readdir('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin', (err, files) => {
+      files.forEach(file => {
+        console.log(file);
+      });
+    });
 //
 //    console.log("----------------WebRTC---------------");
 //
@@ -41,20 +41,20 @@ module.exports = function(ctx) {
 //          console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
 //      });
     
-    stat('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework.zip').then(stats => {
-          console.log(`Size of OWT.framework is ${stats.size} bytes`);
-        });
-    
-//    getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework/WebRTC', (err, size) => {
+//    stat('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework.zip').then(stats => {
+//          console.log(`Size of OWT.framework is ${stats.size} bytes`);
+//        });
+//
+////    getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework/WebRTC', (err, size) => {
 //        if (err) { throw err; }
 //
 //          console.log(`The folder is ${size} bytes large`);
 //          console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
 //      });
     
-    stat('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework.zip').then(stats => {
-          console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
-        });
-    
+//    stat('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework.zip').then(stats => {
+//          console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
+//        });
+//
     
 };
