@@ -18,7 +18,7 @@ module.exports = function(ctx) {
 //    console.log("----------------OWT---------------");
 //
 //
-    fs.readdir('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin', (err, files) => {
+    fs.readdir('./platforms/ios/intelwebrtc_ios', (err, files) => {
       files.forEach(file => {
         console.log(file);
       });
@@ -32,7 +32,7 @@ module.exports = function(ctx) {
 //      });
 //    });
     
-    console.log("current path : "+ path.join('./platforms/ios/intelwebrtc_ios'));
+ //   console.log("current path : "+ path.join('./platforms/ios/intelwebrtc_ios'));
     
 //    getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework/OWT', (err, size) => {
 //        if (err) { throw err; }
