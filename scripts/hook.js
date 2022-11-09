@@ -18,11 +18,11 @@ module.exports = function(ctx) {
 //    console.log("----------------OWT---------------");
 //
 //
-    fs.readdir('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs', (err, files) => {
-      files.forEach(file => {
-        console.log(file);
-      });
-    });
+//    fs.readdir('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs', (err, files) => {
+//      files.forEach(file => {
+//        console.log(file);
+//      });
+//    });
 //
 //    console.log("----------------WebRTC---------------");
 //
@@ -34,39 +34,25 @@ module.exports = function(ctx) {
     
 //   console.log("current path : "+ path.join('./platforms/ios/intelwebrtc_ios'));
     
-//    getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework/OWT', (err, size) => {
-//        if (err) { throw err; }
-//
-//          console.log(`The folder is ${size} bytes large`);
-//          console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
-//      });
+    getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework/OWT', (err, size) => {
+        if (err) { throw err; }
+
+          console.log(`The folder is ${size} bytes large`);
+          console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
+      });
     
 //    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/OWT.framework.zip').then(stats => {
 //          console.log(`Size of OWT.framework is ${stats.size} bytes`);
 //        });
 //
-////    getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework/WebRTC', (err, size) => {
-//        if (err) { throw err; }
-//
-//          console.log(`The folder is ${size} bytes large`);
-//          console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
-//      });
+    getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework/WebRTC', (err, size) => {
+        if (err) { throw err; }
+
+          console.log(`The folder is ${size} bytes large`);
+          console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
+      });
     
-    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/WebRTC.framework.zip.001').then(stats => {
-          console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
-        });
     
-    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/WebRTC.framework.zip.002').then(stats => {
-          console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
-        });
-    
-    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/WebRTC.framework.zip.003').then(stats => {
-          console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
-        });
-    
-    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/WebRTC.framework.zip.004').then(stats => {
-          console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
-        });
 //
     
 };
