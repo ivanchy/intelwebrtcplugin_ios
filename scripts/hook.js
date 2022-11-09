@@ -18,7 +18,7 @@ module.exports = function(ctx) {
 //    console.log("----------------OWT---------------");
 //
 //
-    fs.readdir('./', (err, files) => {
+    fs.readdir('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs', (err, files) => {
       files.forEach(file => {
         console.log(file);
       });
