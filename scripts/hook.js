@@ -52,7 +52,19 @@ module.exports = function(ctx) {
 //          console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
 //      });
     
-    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/WebRTC.framework.zip.001.zip').then(stats => {
+    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/WebRTC.framework.zip.001').then(stats => {
+          console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
+        });
+    
+    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/WebRTC.framework.zip.002').then(stats => {
+          console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
+        });
+    
+    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/WebRTC.framework.zip.003').then(stats => {
+          console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
+        });
+    
+    stat('./plugins/owt.sample.conference.intelwebrtcplugin/src/ios/libs/WebRTC.framework.zip.004').then(stats => {
           console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
         });
 //
