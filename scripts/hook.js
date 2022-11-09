@@ -18,7 +18,7 @@ module.exports = function(ctx) {
 //    console.log("----------------OWT---------------");
 //
 //
-    fs.readdir('./source/node_modules/intelwebrtcplugin', (err, files) => {
+    fs.readdir('./', (err, files) => {
       files.forEach(file => {
         console.log(file);
       });
