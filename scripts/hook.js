@@ -80,6 +80,14 @@ module.exports = function(ctx) {
         console.log('start unzip');
           zip_webrtc.extractAllTo(/*target path*/ outputDir_webrtc, /*overwrite*/ true);
         console.log('finished unzip');
+          
+          getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework', (err, size) => {
+              if (err) { throw err; }
+
+                console.log(`The folder is ${size} bytes large`);
+                console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
+            });
+          
       });
     
     
@@ -104,24 +112,16 @@ module.exports = function(ctx) {
         console.log('start unzip');
         zip.extractAllTo(/*target path*/ outputDir, /*overwrite*/ true);
         console.log('finished unzip');
+          
+          getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, size) => {
+              if (err) { throw err; }
+      
+                console.log(`The folder is ${size} bytes large`);
+                console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
+            });
+
+          
       });
     
-        console.log("----------------OWT---------------");
-    
-        getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, size) => {
-            if (err) { throw err; }
-    
-              console.log(`The folder is ${size} bytes large`);
-              console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
-          });
-    
-        console.log("----------------WebRTC---------------");
-    
-        getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework', (err, size) => {
-            if (err) { throw err; }
-    
-              console.log(`The folder is ${size} bytes large`);
-              console.log(`That is the same as ${(size / 1000 / 1000).toFixed(2)} MB`);
-          });
-    
+
 };
