@@ -1,5 +1,12 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="owt.sample.conference.intelwebrtcplugin" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
+<plugin id="intelwebrtcplugin_ios" version="1.0.0" xmlns="http://apache.org/cordova/ns/plugins/1.0">
+    
+    <name>intelwebrtcplugin</name>
+        <description>Cordova intelwebrtc Plugin</description>
+        <license>Apache 2.0</license>
+        <keywords>webrtc,intel</keywords>
+        <repo>https://github.com/ivanchy/intelwebrtcplugin_ios</repo>
+        <issue>https://github.com/ivanchy/intelwebrtcplugin_ios/issues</issue>
     
     <js-module name="intelwebrtc_plugin" src="www/intelwebrtcplugin.js">
         <clobbers target="intelwebrtcplugin" />
