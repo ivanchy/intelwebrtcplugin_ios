@@ -1,14 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<plugin id="owt.sample.conference.intelwebrtcplugin" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    
-    
-    <name>intelwebrtcplugin</name>
-    
-    <description>Fix the cookies first time load problem.</description>
-    <author>ivanchy</author>
-    <license>MIT</license>
-    <keywords>webrtc, intel</keywords>
-    
+<plugin id="intelwebrtcplugin_ios" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
     
     <js-module name="intelwebrtc_plugin" src="www/intelwebrtcplugin.js">
         <clobbers target="intelwebrtcplugin" />
