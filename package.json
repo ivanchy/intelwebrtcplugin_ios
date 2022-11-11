@@ -1,14 +1,13 @@
 {
   "name": "cordova-plugin-intelwebrtc",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "cordova": {
-      "id": "cordova-plugin-intelwebrtc",
+      "id": "owt.sample.conference.intelwebrtcplugin",
       "platforms": [
-        "android",
         "ios"
       ]
     },
