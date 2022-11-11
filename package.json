@@ -1,11 +1,11 @@
 {
   "name": "intelwebrtcplugin",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "ivanchy",
   "license": "ISC",
   "dependencies": {
     "adm-zip": "^0.5.9",
@@ -21,5 +21,9 @@
     "url": "https://github.com/ivanchy/intelwebrtcplugin_ios/issues"
   },
   "homepage": "https://github.com/ivanchy/intelwebrtcplugin_ios#readme",
-  "description": ""
+  "description": "intelwebrtc",
+  "keywords": [
+    "webrtc",
+    "intel"
+  ]
 }
