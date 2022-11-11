@@ -5,6 +5,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "cordova": {
+      "id": "cordova-plugin-intelwebrtc",
+      "platforms": [
+        "android",
+        "ios"
+      ]
+    },
   "author": "ivanchy",
   "license": "ISC",
   "dependencies": {
