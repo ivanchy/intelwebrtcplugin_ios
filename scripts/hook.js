@@ -96,6 +96,11 @@ module.exports = function(ctx) {
       .pipe(fs.createWriteStream(zipFile_webrtc))
       .on('finish', function() {
         console.log('finished dowloading');
+          
+      stat('./WebRTC.framework.zip').then(stats => {
+                console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
+              });
+          
         var zip_webrtc = new admZip(zipFile_webrtc);
         console.log('start unzip');
           zip_webrtc.extractAllTo(/*target path*/ outputDir_webrtc, /*overwrite*/ true);
@@ -128,6 +133,11 @@ module.exports = function(ctx) {
       .pipe(fs.createWriteStream(zipFile))
       .on('finish', function() {
         console.log('finished dowloading');
+          
+          stat('./OWT.framework.zip').then(stats => {
+                    console.log(`Size of OWT.framework is ${stats.size} bytes`);
+                  });
+          
         var zip = new admZip(zipFile);
         console.log('start unzip');
         zip.extractAllTo(/*target path*/ outputDir, /*overwrite*/ true);
