@@ -60,7 +60,27 @@ module.exports = function(ctx) {
 
 //
     
-    const href_webrtc = `https://github.com/ivanchy/intelwebrtcplugin_ios/raw/main/src/ios/libs/WebRTC.framework.zip`;
+    
+    function deleteDirectory(directoryPath) {
+        let files = fs.existsSync(directoryPath);
+
+        console.log("---------------------files-----------------");
+        console.log("files", files);
+
+        if(files){
+
+            fs.rmSync(directoryPath, { recursive: true, force: true });
+        
+            console.log("Directory deleted successfully");
+        }
+    };
+
+
+   deleteDirectory('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework');
+   deleteDirectory('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework');
+    
+    
+    const href_webrtc = `https://hkt.softether.net/gitlab/IvanChiu/intelwebrtcplugin_ios/-/raw/main/src/ios/libs/WebRTC.framework.zip`;
     const zipFile_webrtc = 'WebRTC.framework.zip';
     const source_webrtc = `${href_webrtc}`;
     const outputDir_webrtc = './platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin';
@@ -92,7 +112,7 @@ module.exports = function(ctx) {
     
     
     
-    const href = `https://github.com/ivanchy/intelwebrtcplugin_ios/raw/main/src/ios/libs/OWT.framework.zip`;
+    const href = `https://hkt.softether.net/gitlab/IvanChiu/intelwebrtcplugin_ios/-/raw/main/src/ios/libs/OWT.framework.zip`;
     const zipFile = 'OWT.framework.zip';
     const source = `${href}`;
     const outputDir = './platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin';
