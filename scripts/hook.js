@@ -98,7 +98,7 @@ module.exports = function(ctx) {
       .on('finish', function() {
         console.log('finished dowloading');
           
-      stat('./WebRTC.framework.zip').then(stats => {
+      stat('./WebRTC_arm64debug.framework.zip').then(stats => {
                 console.log(`Size of WebRTC.framework is ${stats.size} bytes`);
               });
           
@@ -137,7 +137,7 @@ module.exports = function(ctx) {
       .on('finish', function() {
         console.log('finished dowloading');
           
-          stat('./OWT.framework.zip').then(stats => {
+          stat('./OWT_arm64debug.framework.zip').then(stats => {
                     console.log(`Size of OWT.framework is ${stats.size} bytes`);
                   });
           
