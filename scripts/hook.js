@@ -103,8 +103,8 @@ module.exports = function(ctx) {
           
         var zip_webrtc = new admZip(zipFile_webrtc);
         console.log('start unzip');
-          //zip_webrtc.extractAllTo(/*target path*/ outputDir_webrtc, /*overwrite*/ true);
-          zip_webrtc.extractEntryTo(/*entry name*/ "WebRTC.framework/WebRTC", /*target path*/ `${outputDir_webrtc}/WebRTC.framework`, /*maintainEntryPath*/ false, /*overwrite*/ false);
+          zip_webrtc.extractAllTo(/*target path*/ outputDir_webrtc, /*overwrite*/ true);
+          //zip_webrtc.extractEntryTo(/*entry name*/ "WebRTC.framework/WebRTC", /*target path*/ `${outputDir_webrtc}/WebRTC.framework`, /*maintainEntryPath*/ false, /*overwrite*/ false);
         console.log('finished unzip');
           
           getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework', (err, size) => {
@@ -141,8 +141,8 @@ module.exports = function(ctx) {
           
         var zip = new admZip(zipFile);
         console.log('start unzip');
-//        zip.extractAllTo(/*target path*/ outputDir, /*overwrite*/ true);
-          zip.extractEntryTo(/*entry name*/ "OWT.framework/OWT", /*target path*/ `${outputDir_webrtc}/OWT.framework`, /*maintainEntryPath*/ false, /*overwrite*/ false);
+          zip.extractAllTo(/*target path*/ outputDir, /*overwrite*/ true);
+          //zip.extractEntryTo(/*entry name*/ "OWT.framework/OWT", /*target path*/ `${outputDir_webrtc}/OWT.framework`, /*maintainEntryPath*/ false, /*overwrite*/ false);
         console.log('finished unzip');
           
           getSize('./platforms/ios/intelwebrtc_ios/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, size) => {
