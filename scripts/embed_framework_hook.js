@@ -129,10 +129,11 @@ module.exports = function (ctx) {
     console.log("Found", projectPath);
 
     const proj = xcode.project(projectPath);
-    proj.parse(function (err) {
-            if(err) {
-                console.log('Error while parsing project');
-            }
+    proj.parseSync();
+//    proj.parse(function (err) {
+//            if(err) {
+//                console.log('Error while parsing project');
+//            }
     
     //addRunpathSearchBuildProperty(proj, "Debug");
     //addRunpathSearchBuildProperty(proj, "Release");
@@ -142,10 +143,10 @@ module.exports = function (ctx) {
    //proj.addBuildPhase(frameworkNames, 'PBXCopyFilesBuildPhase', groupName, proj.getFirstTarget().uuid, 'frameworks');
 
     // If the build phase doesn't exist, add it
-//    if (proj.pbxEmbedFrameworksBuildPhaseObj(proj.getFirstTarget().uuid) == undefined) {
-//        console.log("BuildPhase not found in XCode project. Adding PBXCopyFilesBuildPhase - Embed Frameworks");
-//        proj.addBuildPhase([], 'PBXCopyFilesBuildPhase', "Embed Frameworks", proj.getFirstTarget().uuid, 'frameworks');
-//    }
+    if (proj.pbxEmbedFrameworksBuildPhaseObj(proj.getFirstTarget().uuid) == undefined) {
+        console.log("BuildPhase not found in XCode project. Adding PBXCopyFilesBuildPhase - Embed Frameworks");
+        proj.addBuildPhase([], 'PBXCopyFilesBuildPhase', "Embed Frameworks", proj.getFirstTarget().uuid, 'frameworks');
+    }
 
     frameworkNames.forEach(function(frameworkName) {
 
@@ -204,7 +205,7 @@ module.exports = function (ctx) {
 //            console.log("finished writing xcodeproj");
 //        }
 //        //deferral.resolve();
-    });
+//    });
     
     //return deferral.promise;
 };
