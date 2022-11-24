@@ -27,12 +27,10 @@
 #import <UIKit/UIKit.h>
 #import <OWT/OWT.h>
 #import "StreamView.h"
-//#import "Conf_AppDelegate.h"
-
-#import "intelwebrtcplugin.h"
+#import "AppDelegate+Intelwebrtcplugin.h"
 
 @interface ConferenceStreamViewController : UIViewController <UIGestureRecognizerDelegate, OWTConferencePublicationDelegate, OWTConferenceSubscriptionDelegate> {
-  intelwebrtcplugin *appDelegate;
+  AppDelegate *appDelegate;
 }
 
 @property (strong, nonatomic) IBOutlet StreamView *streamView;

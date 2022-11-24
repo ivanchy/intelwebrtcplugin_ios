@@ -66,7 +66,7 @@
 - (void)viewDidLoad {
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor clearColor];
-  appDelegate = (intelwebrtcplugin*)[[UIApplication sharedApplication]delegate];
+  appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
   _conferenceClient=[appDelegate conferenceClient];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onStreamAddedNotification:) name:@"OnStreamAdded" object:nil];
   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(onOrientationChangedNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
@@ -208,10 +208,10 @@
         height = resolution.height;
         break;
       }
-//      if (resolution.width < width && resolution.height != 0) {
-//        width = resolution.width;
-//        height = resolution.height;
-//      }
+      if (resolution.width < width && resolution.height != 0) {
+        width = resolution.width;
+        height = resolution.height;
+      }
     }
     [[AVAudioSession sharedInstance]
         overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker

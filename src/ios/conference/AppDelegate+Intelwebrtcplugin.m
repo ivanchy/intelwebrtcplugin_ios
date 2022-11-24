@@ -4,64 +4,64 @@
 #import <OWT/OWT.h>
 #import <WebRTC/WebRTC.h>
 
-#import "intelwebrtcplugin.h"
-//#import "ConferenceConnectionViewController.h"
+#import <objc/runtime.h>
 
-//@interface intelwebrtcplugin : CDVPlugin{
-  // Member variables go here.
-//}
+#import "AppDelegate+Intelwebrtcplugin.h"
 
-//@property (nonatomic,strong) ConferenceConnectionViewController *view;  //声明一个ViewController
+#import "MainViewController.h"
 
-//- (void)coolMethod:(CDVInvokedUrlCommand*)command;
-//@end
+@interface AppDelegate ()
 
-@implementation intelwebrtcplugin
+@end
 
-- (id) init{
-    NSLog(@"=========================初始化");
-    self = [super init];
-    _mixedStream = [[OWTRemoteMixedStream alloc] init];
-    [self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.jpg"]]];
-    return self;
+@implementation AppDelegate (intelwebrtcplugin)
+
+
+
+- (void)setConferenceClient:(OWTConferenceClient *)conferenceClient {
+    objc_setAssociatedObject(self, "conferenceClient", conferenceClient, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)pluginInitialize{
-    NSLog(@"===========================初始化plugin");
-    [super pluginInitialize];
-    // 实例化ViewController
-    self.view = [[ConferenceConnectionViewController alloc] init];
+- (void)setMixedStream:(OWTRemoteMixedStream *)mixedStream {
+    objc_setAssociatedObject(self, "mixedStream", mixedStream, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
 }
 
-- (void)coolMethod:(CDVInvokedUrlCommand*)command
-{
-    //CDVPluginResult* pluginResult = nil;
-    //NSString* echo = [command.arguments objectAtIndex:0];
-    
-//    if (echo != nil && [echo length] > 0) {
-//        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:echo];
-//    } else {
-//        pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];
-//    }
-//
-//    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    
-    //UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"CDVLaunchScreen" bundle:nil];
-    //ConferenceConnectionViewController *yourViewController = [storyboard instantiateViewControllerWithIdentifier:@"conf_connect"] ;
-    //[self.viewController                                  : yourViewController animated:YES completion:nil];
-    
-    //Write here your's storyboard name
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Conf_Main" bundle:nil];
-    //Now write your next view controller and write your storyboard id.
-    ConferenceConnectionViewController *myNewVC = (ConferenceConnectionViewController *)[storyboard instantiateViewControllerWithIdentifier:@"conf_connect"];
-    [self.viewController presentViewController:myNewVC animated:YES completion:nil];
-    
-
-    //[self.viewController presentViewController:self.view animated:YES completion:nil];
-    //CDVPluginResult* pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_ERROR];;
-    //[self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
-    
+- (OWTRemoteMixedStream *)mixedStream {
+    return objc_getAssociatedObject(self, "mixedStream");
 }
+
+- (void)setScreenStream:(OWTRemoteStream *)screenStream {
+    objc_setAssociatedObject(self, "screenStream", screenStream, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (OWTRemoteStream *)screenStream {
+    return objc_getAssociatedObject(self, "screenStream");
+}
+
+- (void)setConferenceId:(NSString *)conferenceId {
+    objc_setAssociatedObject(self, "conferenceId", conferenceId, OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+}
+
+- (NSString *)conferenceId {
+    return objc_getAssociatedObject(self, "conferenceId");
+}
+
+
++ (void)load {
+    Method original = class_getInstanceMethod(self, @selector(application:didFinishLaunchingWithOptions:));
+    Method swizzled = class_getInstanceMethod(self, @selector(application:swizzledDidFinishLaunchingWithOptions:));
+    method_exchangeImplementations(original, swizzled);
+}
+
+- (BOOL)application:(UIApplication *)application swizzledDidFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    // Override point for customization after application launch.
+  self.mixedStream = [[OWTRemoteMixedStream alloc] init];
+    //[self.window setBackgroundColor:[UIColor colorWithPatternImage:[UIImage imageNamed:@"bg.jpg"]]];
+    self.viewController = [[MainViewController alloc] init];
+    return [super application:application didFinishLaunchingWithOptions:launchOptions];
+    //return YES;
+}
+
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -86,7 +86,7 @@
 }
 
 - (OWTConferenceClient*)conferenceClient{
-  if (_conferenceClient==nil){
+  if (objc_getAssociatedObject(self, "conferenceClient")==nil){
     //NSString* path=[[NSBundle mainBundle]pathForResource:@"audio_long16" ofType:@"pcm"];
     //FileAudioFrameGenerator* generator=[[FileAudioFrameGenerator alloc]initWithPath:path sampleRate:16000 channelNumber:1];
     //[RTCGlobalConfiguration setCustomizedAudioInputEnabled:YES audioFrameGenerator:generator];
@@ -94,10 +94,10 @@
     NSArray *ice=[[NSArray alloc]initWithObjects:[[RTCIceServer alloc]initWithURLStrings:[[NSArray alloc]initWithObjects:@"stun:61.152.239.47:3478", nil]], nil];
     config.rtcConfiguration=[[RTCConfiguration alloc] init];
     config.rtcConfiguration.iceServers=ice;
-    _conferenceClient=[[OWTConferenceClient alloc]initWithConfiguration:config];
-    _conferenceClient.delegate=self;
+    self.conferenceClient=[[OWTConferenceClient alloc]initWithConfiguration:config];
+    self.conferenceClient.delegate=self;
   }
-  return _conferenceClient;
+  return objc_getAssociatedObject(self, "conferenceClient");
 }
 
 -(void)onVideoLayoutChanged{
@@ -108,18 +108,18 @@
   NSLog(@"AppDelegate on stream added");
   stream.delegate=self;
   if ([stream isKindOfClass:[OWTRemoteMixedStream class]]) {
-    _mixedStream = (OWTRemoteMixedStream *)stream;
-    _mixedStream.delegate=self;
+    self.mixedStream = (OWTRemoteMixedStream *)stream;
+    self.mixedStream.delegate=self;
   }
   if(stream.source.video==OWTVideoSourceInfoScreenCast){
-    _screenStream=stream;
+    self.screenStream=stream;
   }
   [[NSNotificationCenter defaultCenter] postNotificationName:@"OnStreamAdded" object:self userInfo:[NSDictionary dictionaryWithObject:stream forKey:@"stream"]];
 }
 
 -(void)conferenceClientDidDisconnect:(OWTConferenceClient *)client{
   NSLog(@"Server disconnected");
-  _mixedStream = nil;
+  self.mixedStream = nil;
 }
 
 -(void)conferenceClient:(OWTConferenceClient *)client didReceiveMessage:(NSString *)message from:(NSString *)senderId{

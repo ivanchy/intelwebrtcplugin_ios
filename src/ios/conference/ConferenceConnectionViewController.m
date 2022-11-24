@@ -27,8 +27,7 @@
 #import <AFNetworking/AFNetworking.h>
 #import <OWT/OWT.h>
 #import "ConferenceConnectionViewController.h"
-//#import "Conf_AppDelegate.h"
-#import "intelwebrtcplugin.h"
+#import "AppDelegate+Intelwebrtcplugin.h"
 #import "HorizontalSegue.h"
 
 @interface ConferenceConnectionViewController ()
@@ -45,9 +44,7 @@
   [super viewDidLoad];
   self.view.backgroundColor = [UIColor clearColor];
   self.hostTb.delegate=self;
-  //intelwebrtcplugin* appDelegate = (id)[[UIApplication sharedApplication]delegate];
-    intelwebrtcplugin *appDelegate = (id)[[intelwebrtcplugin alloc] init];
-  //_conferenceClient=[appDelegate conferenceClient];
+  AppDelegate* appDelegate = (id)[[UIApplication sharedApplication]delegate];
   _conferenceClient=[appDelegate conferenceClient];
   NSString *tmpStr = [[NSUserDefaults standardUserDefaults] stringForKey:@"userDefaultURL"];
   if (tmpStr && tmpStr.length != 0) {
@@ -97,7 +94,7 @@
     [_conferenceClient joinWithToken:token onSuccess:^(OWTConferenceInfo* info) {
       dispatch_async(dispatch_get_main_queue(), ^{
         if([info.remoteStreams count]>0){
-          intelwebrtcplugin* appDelegate = (intelwebrtcplugin*)[[UIApplication sharedApplication]delegate];
+          AppDelegate* appDelegate = (AppDelegate*)[[UIApplication sharedApplication]delegate];
           appDelegate.conferenceId=info.conferenceId;
           for(OWTRemoteStream* s in info.remoteStreams){
             s.delegate=appDelegate;

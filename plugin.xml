@@ -15,11 +15,23 @@
             </feature>
         </config-file>
         
+        
+        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
+                     <string>Using camera for video chat.</string>
+             </config-file>
+        
+        <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
+                     <string>Using mic for voice and video chat.</string>
+             </config-file>
+        
+        
 <!--        <source-file src="src/ios/conference/Base.lproj/LaunchScreen.xib" />-->
-         <resource-file src="src/ios/conference/Base.lproj/Conf_Main.storyboard"/>
+         <resource-file src="src/ios/conference/Base.lproj/Main.storyboard"/>
     
-        <source-file src="src/ios/intelwebrtcplugin.h" />
-        <source-file src="src/ios/intelwebrtcplugin.m" />
+        <source-file src="src/ios/conference/Intelwebrtcplugin.h" />
+        <source-file src="src/ios/conference/Intelwebrtcplugin.m" />
+        <source-file src="src/ios/conference/AppDelegate+Intelwebrtcplugin.h" />
+        <source-file src="src/ios/conference/AppDelegate+Intelwebrtcplugin.m" />
         
         <source-file src="src/ios/conference/ConferenceConnectionViewController.h" />-->
 <!--        <source-file src="src/ios/conference/Conf_AppDelegate.h" />-->
