@@ -208,10 +208,10 @@
         height = resolution.height;
         break;
       }
-      if (resolution.width < width && resolution.height != 0) {
-        width = resolution.width;
-        height = resolution.height;
-      }
+//      if (resolution.width < width && resolution.height != 0) {
+//        width = resolution.width;
+//        height = resolution.height;
+//      }
     }
     [[AVAudioSession sharedInstance]
         overrideOutputAudioPort:AVAudioSessionPortOverrideSpeaker
