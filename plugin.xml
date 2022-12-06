@@ -1,55 +1,38 @@
 <?xml version='1.0' encoding='utf-8'?>
 <plugin id="owt.sample.conference.intelwebrtcplugin" version="0.0.1" xmlns="http://apache.org/cordova/ns/plugins/1.0" xmlns:android="http://schemas.android.com/apk/res/android">
-    <name>intelwebrtcplugin</name>
-    <js-module name="intelwebrtc_plugin" src="www/intelwebrtcplugin.js">
+    <name>intelwebrtcplugin</name><js-module name="intelwebrtc_plugin" src="www/intelwebrtcplugin.js">
         <clobbers target="intelwebrtcplugin" />
     </js-module>
     <platform name="ios">
-       
-       <hook type="after_plugin_install" src="scripts/hook.js" />
-       <hook type="before_build" src="scripts/embed_framework_hook.js" />
-       
-        <config-file parent="/*" target="config.xml">
-            <feature name="intelwebrtcplugin">
-                <param name="ios-package" value="intelwebrtcplugin" />
-            </feature>
+        <hook src="scripts/hook.js" type="after_plugin_install" />
+        <hook src="scripts/embed_framework_hook.js" type="before_build" />
+        <config-file parent="/*" target="config.xml"><feature name="intelwebrtcplugin">
+            <param name="ios-package" value="intelwebrtcplugin" />
+        </feature>
         </config-file>
-        
-        
-        <config-file target="*-Info.plist" parent="NSCameraUsageDescription">
-                     <string>Using camera for video chat.</string>
-             </config-file>
-        
-        <config-file target="*-Info.plist" parent="NSMicrophoneUsageDescription">
-                     <string>Using mic for voice and video chat.</string>
-             </config-file>
-        
-        
-<!--        <source-file src="src/ios/conference/Base.lproj/LaunchScreen.xib" />-->
-         <resource-file src="src/ios/conference/Base.lproj/Main.storyboard"/>
-    
+        <config-file parent="NSCameraUsageDescription" target="*-Info.plist">
+            <string>Using camera for video chat.</string>
+        </config-file>
+        <config-file parent="NSMicrophoneUsageDescription" target="*-Info.plist">
+            <string>Using mic for voice and video chat.</string>
+        </config-file>
+        <resource-file src="src/ios/conference/Base.lproj/Main.storyboard" />
         <source-file src="src/ios/conference/Intelwebrtcplugin.h" />
         <source-file src="src/ios/conference/Intelwebrtcplugin.m" />
         <source-file src="src/ios/conference/AppDelegate+Intelwebrtcplugin.h" />
         <source-file src="src/ios/conference/AppDelegate+Intelwebrtcplugin.m" />
-        
-        <source-file src="src/ios/conference/ConferenceConnectionViewController.h" />-->
-<!--        <source-file src="src/ios/conference/Conf_AppDelegate.h" />-->
+        <source-file src="src/ios/conference/ConferenceConnectionViewController.h" />
         <source-file src="src/ios/conference/BrightenFilter.h" />
         <source-file src="src/ios/conference/ConferenceStreamViewController.h" />
         <source-file src="src/ios/conference/FileAudioFrameGenerator.h" />
         <source-file src="src/ios/conference/HorizontalSegue.h" />
         <source-file src="src/ios/conference/StreamView.h" />
-        
-<!--        <source-file src="src/ios/conference/Conf_AppDelegate.m" />-->
         <source-file src="src/ios/conference/BrightenFilter.m" />
         <source-file src="src/ios/conference/ConferenceConnectionViewController.m" />
         <source-file src="src/ios/conference/ConferenceStreamViewController.m" />
         <source-file src="src/ios/conference/FileAudioFrameGenerator.m" />
         <source-file src="src/ios/conference/HorizontalSegue.m" />
-<!--        <source-file src="src/ios/conference/conf_main.m" />-->
         <source-file src="src/ios/conference/StreamView.m" />
-        
         <framework src="VideoToolbox.framework" />
         <framework src="AudioToolbox.framework" />
         <framework src="AVFoundation.framework" />
@@ -59,22 +42,21 @@
         <framework src="libc++.tbd" />
         <framework src="libicucore.tbd" />
         <framework src="libsqlite3.0.tbd" />
-        <source-file src="src/ios/libs/libsioclient_tls.a" framework="true" />
-        
-<!--        <framework src="src/ios/libs/OWT.framework" custom="true"  />-->
-     <!-- may need manual set embed & sign -->
-<!--        <framework src="src/ios/libs/WebRTC.framework" custom="true" weak="false" embed="true" />-->
-        
+        <source-file framework="true" src="src/ios/libs/libsioclient_tls.a" />
         <podspec>
             <config>
-                <source url="https://github.com/CocoaPods/Specs.git"/>
-            </config>
-            <pods use-frameworks="true">
-                <pod name="AFNetworking" spec="~> 2.0" />
+                <source url="https://github.com/CocoaPods/Specs.git" />
+            </config><pods use-frameworks="true">
+                <pod name="AFNetworking" spec="~&gt; 2.0" />
             </pods>
         </podspec>
-
-        
+    </platform>
+    <platform name="android">
+        <config-file parent="/*" target="res/xml/config.xml">
+            <feature name="intelwebrtcplugin">
+                <param name="android-package" value="owt.sample.conference.intelwebrtcplugin.intelwebrtcplugin" />
+            </feature></config-file>
+        <config-file parent="/*" target="AndroidManifest.xml">
+        </config-file><source-file src="src/android/intelwebrtcplugin.java" target-dir="src/owt/sample/conference/intelwebrtcplugin/intelwebrtcplugin" />
     </platform>
 </plugin>
-
