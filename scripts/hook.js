@@ -84,7 +84,7 @@ module.exports = function(ctx) {
     const href_webrtc = `https://hkt.softether.net/gitlab/IvanChiu/intelwebrtcplugin_ios/-/raw/main/src/ios/libs/WebRTC_arm64debug.framework.zip`;
     const zipFile_webrtc = 'WebRTC_arm64debug.framework.zip';
     const source_webrtc = `${href_webrtc}`;
-    const outputDir_webrtc = './platforms/ios/intelwebrtc/Plugins/owt.sample.conference.intelwebrtcplugin';
+    const outputDir_webrtc = './platforms/ios/intelwebrtc_ios_new/Plugins/owt.sample.conference.intelwebrtcplugin';
     console.log('href', href_webrtc);
     console.log('source', source_webrtc);
     console.log('outputDir', outputDir_webrtc);
@@ -108,7 +108,7 @@ module.exports = function(ctx) {
           //zip_webrtc.extractEntryTo(/*entry name*/ "WebRTC.framework/WebRTC", /*target path*/ `${outputDir_webrtc}/WebRTC.framework`, /*maintainEntryPath*/ false, /*overwrite*/ false);
         console.log('finished unzip');
           
-          getSize('./platforms/ios/intelwebrtc/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework', (err, size) => {
+          getSize('./platforms/ios/intelwebrtc_ios_new/Plugins/owt.sample.conference.intelwebrtcplugin/WebRTC.framework', (err, size) => {
               if (err) { throw err; }
 
                 console.log(`The folder is ${size} bytes large`);
@@ -122,7 +122,7 @@ module.exports = function(ctx) {
         const href = `https://hkt.softether.net/gitlab/IvanChiu/intelwebrtcplugin_ios/-/raw/main/src/ios/libs/OWT_arm64debug.framework.zip`;
         const zipFile = 'OWT_arm64debug.framework.zip';
         const source = `${href}`;
-        const outputDir = './platforms/ios/intelwebrtc/Plugins/owt.sample.conference.intelwebrtcplugin';
+        const outputDir = './platforms/ios/intelwebrtc_ios_new/Plugins/owt.sample.conference.intelwebrtcplugin';
         console.log('href', href);
         console.log('source', source);
         console.log('outputDir', outputDir);
@@ -146,7 +146,7 @@ module.exports = function(ctx) {
               //zip.extractEntryTo(/*entry name*/ "OWT.framework/OWT", /*target path*/ `${outputDir_webrtc}/OWT.framework`, /*maintainEntryPath*/ false, /*overwrite*/ false);
             console.log('finished unzip');
               
-              getSize('./platforms/ios/intelwebrtc/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, size) => {
+              getSize('./platforms/ios/intelwebrtc_ios_new/Plugins/owt.sample.conference.intelwebrtcplugin/OWT.framework', (err, size) => {
                   if (err) { throw err; }
           
                     console.log(`The folder is ${size} bytes large`);
@@ -161,7 +161,7 @@ module.exports = function(ctx) {
     const href_first_image = `https://hkt.softether.net/gitlab/IvanChiu/intelwebrtcplugin_ios/-/raw/main/src/ios/conference/Images.xcassets/first.imageset.zip`;
     const zipFile_first_image = 'first.imageset.zip';
     const source_first_image = `${href_first_image}`;
-    const outputDir_first_image = './platforms/ios/intelwebrtc/Images.xcassets';
+    const outputDir_first_image = './platforms/ios/intelwebrtc_ios_new/Images.xcassets';
     console.log('href', href_first_image);
     console.log('source', zipFile_first_image);
     console.log('outputDir', source_first_image);
@@ -185,7 +185,7 @@ module.exports = function(ctx) {
           //zip_webrtc.extractEntryTo(/*entry name*/ "WebRTC.framework/WebRTC", /*target path*/ `${outputDir_webrtc}/WebRTC.framework`, /*maintainEntryPath*/ false, /*overwrite*/ false);
         console.log('finished unzip');
           
-          getSize('./platforms/ios/intelwebrtc/Images.xcassets/first.imageset', (err, size) => {
+          getSize('./platforms/ios/intelwebrtc_ios_new/Images.xcassets/first.imageset', (err, size) => {
               if (err) { throw err; }
 
                 console.log(`The folder is ${size} bytes large`);
@@ -200,7 +200,7 @@ module.exports = function(ctx) {
     const href_second_image = `https://hkt.softether.net/gitlab/IvanChiu/intelwebrtcplugin_ios/-/raw/main/src/ios/conference/Images.xcassets/second.imageset.zip`;
     const zipFile_second_image = 'second.imageset.zip';
     const source_second_image = `${href_second_image}`;
-    const outputDir_second_image = './platforms/ios/intelwebrtc/Images.xcassets';
+    const outputDir_second_image = './platforms/ios/intelwebrtc_ios_new/Images.xcassets';
     console.log('href', href_second_image);
     console.log('source', source_second_image);
     console.log('outputDir', outputDir_second_image);
@@ -224,7 +224,7 @@ module.exports = function(ctx) {
           //zip.extractEntryTo(/*entry name*/ "OWT.framework/OWT", /*target path*/ `${outputDir_webrtc}/OWT.framework`, /*maintainEntryPath*/ false, /*overwrite*/ false);
         console.log('finished unzip');
           
-          getSize('./platforms/ios/intelwebrtc/Images.xcassets/second.imageset', (err, size) => {
+          getSize('./platforms/ios/intelwebrtc_ios_new/Images.xcassets/second.imageset', (err, size) => {
               if (err) { throw err; }
       
                 console.log(`The folder is ${size} bytes large`);
