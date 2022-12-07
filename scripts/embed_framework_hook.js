@@ -24,7 +24,7 @@ module.exports = function (ctx) {
 
     
     const platformRoot = path.join(ctx.opts.projectRoot, 'platforms/ios');
-    const apkFileLocation = path.join(platformRoot, 'intelwebrtc_ios_new/Plugins/owt.sample.conference.intelwebrtcplugin');
+    const apkFileLocation = path.join(platformRoot, 'TheCloud_Clone_Ivan/Plugins/owt.sample.conference.intelwebrtcplugin');
     //var fs = ctx.requireCordovaModule("fs");
     //var path = ctx.requireCordovaModule("path");
     //var xcode = ctx.requireCordovaModule("xcode");
